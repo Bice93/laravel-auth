@@ -19,7 +19,7 @@
                             <tr>
                                 <th scope="row">{{ $post->id }}</th>
                                 <td>{{ $post->name_user }}</td>
-                                <td>{{ $post->title }}</td>
+                                <td><a href="{{ route('admin.posts.show', $post->id) }}">{{ $post->title }}</a></td>
                                 <td>{{ $post->post_date }}</td>
                                 <td>
                                     <a href="" class="btn btn-sm btn-success">Edit</a>
@@ -27,7 +27,7 @@
                                 </td>
                             </tr>
                         @empty
-                            <p>Non ci sono post da visualizzare!</p>
+                            <h5>Non ci sono post da visualizzare!</h5>
                         @endforelse
                     </tbody>
                 </table>

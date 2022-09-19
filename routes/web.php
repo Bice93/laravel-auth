@@ -27,4 +27,6 @@ Route::middleware('auth')
         Route::get('/', 'HomeController@index')->name('home');
         Route::resource('/posts', 'PostController');
     });
-//Route::middleware('auth')->get('/home', 'Admin\HomeController@index')->name('home');
+
+// Route::middleware('auth')->get('/home', 'Admin\HomeController@index')->name('admin.home');
+// Route::middleware('auth')->resource('/posts', 'PostController');
