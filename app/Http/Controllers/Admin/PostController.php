@@ -26,7 +26,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $post = new Post();
+        return view('admin.posts.create', compact('post'));
     }
 
     /**
@@ -37,7 +38,15 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $newPost = new Post();
+        $newPost->title = $data['title'];
+        $newPost->post_contente = $data['post_content'];
+        $newPost->post_image = $data['post_image'];
+        //dd($newPost);
+        $newPost-> save();
+
+        return redirect()->route('admin.posts.show', $newPost->id);
     }
 
     /**
