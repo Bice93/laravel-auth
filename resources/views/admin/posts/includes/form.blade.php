@@ -4,7 +4,7 @@
     {{-- @error('title')
         <div class="alert alert-danger mt-1 w-50 style_error_message">{{ $message }}</div>
     @enderror --}}
-    {{-- @include('comics.includes.messageError', ['name' => 'title']) --}}
+    @include('admin.posts.includes.messageError', ['name' => 'title'])
 
 </div>
 
@@ -17,7 +17,7 @@
     {{-- @error('description')
         <div class="alert alert-danger mt-1 w-50 style_error_message">{{ $message }}</div>
     @enderror --}}
-    {{-- @include('comics.includes.messageError', ['name' => 'description']) --}}
+    @include('admin.posts.includes.messageError', ['name' => 'post_content'])
 </div>
 
 <div class="mb-3">
@@ -27,7 +27,7 @@
     {{-- @error('image_url')
         <div class="alert alert-danger mt-1 w-50 style_error_message">{{ $message }}</div>
     @enderror --}}
-    {{-- @include('comics.includes.messageError', ['name' => 'image_url']) --}}
+    @include('admin.posts.includes.messageError', ['name' => 'post_image'])
 </div>
 
 {{-- <button type="submit" class="btn btn-primary">Edit element</button> --}}

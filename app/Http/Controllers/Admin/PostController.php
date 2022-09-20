@@ -8,6 +8,19 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+
+    protected $validationRules = [
+        'title'=>'required|min:5|max:255|unique:posts',
+        'post_content' => 'required|min:10',
+        'post_image'=>'required|active_url',
+    ];
+
+    protected $validationMessages =  [
+        'title.required' => 'Inserisci il titolo!',
+        'post_content.required' => 'Inserisci la serie!',
+        'post_image.required' => 'Inserisci l\'immagine!',
+    ];
+
     /**
      * Display a listing of the resource.
      *
@@ -38,10 +51,11 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate($this->validationRules, $this->validationMessages);
         $data = $request->all();
         $newPost = new Post();
         $newPost->title = $data['title'];
-        $newPost->post_contente = $data['post_content'];
+        $newPost->post_content = $data['post_content'];
         $newPost->post_image = $data['post_image'];
         //dd($newPost);
         $newPost-> save();
@@ -82,6 +96,7 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validatedData = $request->validate($this->validationRules, $this->validationMessages);
         $data = $request->all();
         $post = Post::findOrFail($id);
         $post = new Post();
