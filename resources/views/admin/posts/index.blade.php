@@ -22,8 +22,14 @@
                                 <td><a href="{{ route('admin.posts.show', $post->id) }}">{{ $post->title }}</a></td>
                                 <td>{{ $post->post_date }}</td>
                                 <td>
-                                    <a href="{{ route('admin.posts.edit', $post->id) }}" class="btn btn-sm btn-success">Edit</a>
-                                    <a href="" class="btn btn-sm btn-danger">Delete</a>
+                                    <a href="{{ route('admin.posts.edit', $post->id) }}"
+                                        class="btn btn-sm btn-success">Edit</a>
+                                    <form class="d-inline" action="{{ route('admin.posts.destroy', $post->id) }}"
+                                        method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-danger">DELETE</button>
+                                    </form>
                                 </td>
                             </tr>
                         @empty
