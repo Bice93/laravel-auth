@@ -22,7 +22,7 @@
                                 <td><a href="{{ route('admin.posts.show', $post->id) }}">{{ $post->title }}</a></td>
                                 <td>{{ $post->post_date }}</td>
                                 <td>
-                                    <a href="" class="btn btn-sm btn-success">Edit</a>
+                                    <a href="{{ route('admin.posts.edit', $post->id) }}" class="btn btn-sm btn-success">Edit</a>
                                     <a href="" class="btn btn-sm btn-danger">Delete</a>
                                 </td>
                             </tr>
